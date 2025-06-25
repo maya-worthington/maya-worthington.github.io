@@ -1,0 +1,316 @@
+/*
+/HTML/IMG/unsplash-LandscapeMountain.jpg
+*/
+/* Reset */
+:root {
+    /* Base */
+    --Base1: #FFFFFF;
+    --Base2: #C6D4D1;
+    --Base3: #7B948F;
+
+    /* Dark */
+    --Dark: #164211;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--Dark);
+    text-align: center;
+    font-family: Bahnschrift, serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../IMG/unsplash-LandscapeMountain.jpg') center/cover no-repeat;
+    filter: blur(6px) brightness(1.3); /* Blur + brighten */
+    z-index: -1; /* Push behind text */
+    pointer-events: none;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem)
+}
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+}
+h3 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-weight: 700;
+}
+h4 {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 600;
+    text-decoration: underline;
+}
+p {
+    text-align: justify;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-style: normal;
+    font-weight: 450;
+    line-height: 1.5rem;
+}
+
+/* Banner */
+.banner {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: transparent;
+    color: var(--Dark);
+}
+
+/* Nav */
+.nav {
+    display: flex;
+    justify-content: left;
+    gap: 0.4rem;
+    max-width: 960px;
+    margin: 3rem auto 0;
+}
+
+/* Nav Links */
+.nav a {
+    position: relative;
+    border-radius: 16px 16px 0 0;
+    background: var(--Base2);
+    text-decoration: none;
+    color: var(--Base3);
+    font-weight: bold;
+    padding: 0.6rem 1.5rem 0.5rem 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    box-shadow: -8px -8px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: background 0.2s ease, color 0.2s ease, margin-top 0.2s ease, font-size 0.2s ease, padding 0.2s ease;
+}
+
+/* Assign stacking order manually using nth-child */
+.nav a:nth-child(1) { z-index: 5; }
+.nav a:nth-child(2) { z-index: 4; }
+.nav a:nth-child(3) { z-index: 3; }
+.nav a:nth-child(4) { z-index: 2; }
+.nav a:nth-child(5) { z-index: 1; }
+.nav a:nth-child(6) { z-index: 0; }
+
+.nav a:hover {
+    background: var(--Base3);
+    color: var(--Base1);
+    margin-top: 0;
+}
+
+.nav a.active {
+    background: var(--Base1);
+    color: var(--Dark);
+    margin-top: 0;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+}
+
+.nav a.null {
+    box-shadow: 0 -8px 10px -5px rgba(0, 0, 0, 0.25) inset;
+}
+
+/* Content */
+.content {
+    background: var(--Base1);
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    max-width: 960px;
+    border-radius: 0 16px 16px 16px;
+    display: flex;
+    padding: 2.5rem 0.625rem 2rem 0.625rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    align-self: stretch;
+    box-shadow: -8px -8px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.line {
+    width: 100%;
+    height: .25rem;
+    position: relative;
+    background: var(--Dark);
+    border-radius: 1rem;
+}
+
+.IMG {
+    width: 25rem; /*25*/
+    height: auto;
+    border-radius: 2rem;
+    overflow: hidden; /* This is key! */
+    box-shadow: inset 10px 10px 6px rgba(0, 0, 0, 0.25);
+    border: 2px solid #7B948F;
+}
+.float-left {
+    float: left;
+    margin-right: 2rem;
+}
+.float-right {
+    float: right;
+    margin-left: 2rem;
+}
+
+.IMG.small {
+    width: 15rem;
+}
+.IMG.big {
+    width: 65vw;
+}
+
+.IMG.big.external {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 625 / 416.21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.IMG.big.external::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../IMG/mayaMapsChoropleth.jpg') center/cover no-repeat;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+/* Content stays sharp on top */
+.IMG.big.external > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.row {
+    max-width: 960px;
+    padding: 0 1.25rem;
+    overflow: hidden;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    align-self: stretch;
+}
+.textbox.inside {
+    padding-bottom: .5rem;
+}
+
+/* Card */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 60rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+.card-map {
+    background: var(--Base2);
+    width: 25rem;
+    padding: 1.6rem;
+    box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+    border-radius: 2rem;
+    text-align: center;
+    color: var(--Dark);
+    transition: all 0.3s ease;
+    /*blur*/
+    backdrop-filter: blur(10px);
+}
+.IMG.Card {
+    width: 100%;
+    border-radius: .4rem;
+}
+.card-map:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+.title {
+    margin: 20px 0 0 0;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+
+}
+.title span {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+}
+.card-link {
+    text-decoration: none;
+}
+
+
+/*https://getcssscan.com/css-buttons-examples button 80*/
+.button-Interactive {
+   background: var(--Base2);
+   backface-visibility: hidden;
+   border-radius: .375rem;
+   border-style: solid;
+   border-width: .125rem;
+   box-sizing: border-box;
+   color: var(--Dark);
+   cursor: pointer;
+   display: inline-block;
+   font-family: Circular,Helvetica,sans-serif;
+   font-size: 1.125rem;
+   font-weight: 700;
+   letter-spacing: -.01em;
+   line-height: 1.3;
+   padding: .875rem 1.125rem;
+   position: relative;
+   text-align: left;
+   text-decoration: none;
+   transform: translateZ(0) scale(1);
+   transition: transform .2s;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+    border-color: var(--Dark);
+}
+.button-Interactive:not(:disabled):hover {
+    transform: scale(1.05);
+}
+.button-Interactive:not(:disabled):hover:active {
+    transform: scale(1.05) translateY(.125rem);
+}
+.button-Interactive:focus {
+    outline: 0 solid transparent;
+}
+.button-Interactive:focus:before {
+    content: "";
+    left: calc(-1*.375rem);
+    pointer-events: none;
+    position: absolute;
+    top: calc(-1*.375rem);
+    transition: border-radius;
+    user-select: none;
+}
+.button-Interactive:focus:not(:focus-visible) {
+    outline: 0 solid transparent;
+}
+.button-Interactive:focus:not(:focus-visible):before {
+    border-width: 0;
+}
+.button-Interactive:not(:disabled):active {
+    transform: translateY(.125rem);
+}
