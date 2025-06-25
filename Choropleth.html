@@ -14,6 +14,8 @@
         <a class="active" href="#">Choropleth</a>
         <a class="null" href="DEM.html">DEM</a>
         <a class="null" href="Vector.html">Vector</a>
+        <a class="null" href="Land.html">Land</a>
+        <a class="null" href="Carbon.html">Carbon</a>
     </nav>
 
     <div class="content">
@@ -34,10 +36,9 @@
         <h4 style="text-decoration: none;">Maps</h4>
         <div class="line"> </div>
 
-        <div class="row">
-            <div class="IMG big" style="
+        <div class="IMG big" style="
             background: url('IMG/mayaMapsChoropleth.jpg') center/cover no-repeat;
-            aspect-ratio: 625 / 416.21;"></div>
+            aspect-ratio: 625 / 416.21;">
         </div>
         <div class="row">
             <p>The map presented is a choropleth map visualising data related to the Sustainable Development Goal (SDG)
@@ -57,11 +58,11 @@
                 symbology settings and selecting a blue graduated colour ramp as it was talking about water. 
             </p>
         </div>
-        <div class="row">
-            <div class="IMG big external">
-                <button class="button-Interactive" onclick="window.open('InteractiveMap/index.html', '_blank')">Visit interactive</button>
-            </div>
-        </div>
+        <div class="IMG big externalA" style="position: relative; width: 100%; padding-bottom: 60%; height: 0;">
+            <iframe src="InteractiveMap/index.html"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    loading="lazy"></iframe>
+        </div>                        
         <div class="row">
             <p>For this map, utilising HTML I managed to make the same choropleth map into an interactive version of the
                 same SDG indicator.
