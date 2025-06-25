@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carbon</title>
+    <link rel="stylesheet" href="CSS/Mayas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav">
+        <a class="null" href="index.html">Home</a>
+        <a class="null" href="AboutMe.html">About Me</a>
+        <a class="null" href="Choropleth.html">Choropleth</a>
+        <a class="null" href="DEM.html">DEM</a>
+        <a class="null" href="Vector.html">Vector</a>
+        <a class="null" href="Land.html">Land</a>
+        <a class="active" href="#">Carbon</a>
+    </nav>
+
+    <div class="content">
+        <h3>Carbon Sequestration</h3>
+        <div class="line"> </div>
+
+        <div class="row">
+            <p>The Carbon Sequestration Potential Index (CSPI) reflects the ability of land areas to store carbon in
+                vegetation, and is calculated based on three main variables: Gross Primary Production (GPP), Aboveground
+                Carbon Density (ACD), and Forest Cover (FC). These indicators help identify which areas are already
+                functioning as strong carbon sinks and which have potential for reforestation or improved land
+                management.
+            </p>
+            <ul>
+                <li>GPP represents the amount of carbon dioxide absorbed by plants through photosynthesis. This gives us
+                    insight into how active and productive the vegetation is.</li>
+                <li>ACD refers to the amount of carbon stored in the biomass of trees, shrubs, and other aboveground
+                    vegetation. High ACD areas are key for conservation because they hold large carbon stocks.</li>
+                <li>FC indicates the percentage of land covered by forest, which supports both existing carbon storage
+                    and future sequestration capacity.</li>
+            </ul>
+        </div>
+        <div class="row">
+            <p>For this assignment I chose to focus on Cyprus as it is a geographically diverse island, featuring
+                mountain ranges like the Troodos and Kyrenia, the central Mesaoria Plain, and an extensive coastline.
+                It has a Mediterranean climate with hot, dry summers and mild, wetter winters. While the island enjoys
+                over 300 days of sunshine a year, the Troodos Mountains receive the most rainfall, conditions that
+                directly influence vegetation health and carbon uptake. This range in topography and climate makes
+                Cyprus a good example to examine both existing carbon sinks and areas that could benefit from
+                restoration.
+            </p>
+        </div>
+
+        <div class="line"> </div>
+        <h4 style="text-decoration: none;">Maps</h4>
+        <div class="line"> </div>
+
+        <div class="row">
+            <p>The map was built using Google Earth Engine (GEE). I began by selecting Cyprus as my region of interest
+                (ROI) and uploading its shapefile to the GEE platform. I then downloaded the ESA Aboveground Biomass
+                GeoTIFF dataset that includes Cyprus, based on the island’s latitude and longitude. After importing the
+                file into GEE and replacing the sample ROI in the script, I ran the calculations to generate ACD, GPP,
+                FC, and CSPI layers. Cyprus covers roughly 3.6 million hectares, and the CSPI map allows us to visually
+                compare areas of high carbon storage versus areas with potential for more vegetation growth. The values
+                for mean GPP, ACD, FC, and CSPI were extracted directly from the console in GEE.
+            </p>
+        </div>
+
+        <div class="IMG big externalA" style="aspect-ratio: 625 / 416.21;">
+            <iframe src="https://trial-463811.projects.earthengine.app/view/carbon-sequestration"
+                    style="width: 100%; height: 100%; border: none;"
+                    loading="lazy">
+            </iframe>
+        </div>
+
+            <p>The conservation area I identified, found in Southwest Central Cyprus, shows high ACD, meaning these
+                zones already store significant carbon in their forests or dense vegetation. These areas should be
+                prioritised for protection to avoid future emissions and support biodiversity. In contrast, the
+                reforestation area found in Northeast Central Cyprus had low ACD but moderate GPP, indicating it
+                doesn’t store much carbon yet but is biologically active. That makes it an ideal candidate for
+                replanting, as it could significantly increase its carbon storage capacity over time.
+            </p>
+        </div>
+
+
+    </div>
+</body>
+</html>

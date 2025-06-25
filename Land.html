@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Land</title>
+    <link rel="stylesheet" href="CSS/Mayas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav">
+        <a class="null" href="index.html">Home</a>
+        <a class="null" href="AboutMe.html">About Me</a>
+        <a class="null" href="Choropleth.html">Choropleth</a>
+        <a class="null" href="DEM.html">DEM</a>
+        <a class="null" href="Vector.html">Vector</a>
+        <a class="active" href="#">Land</a>
+        <a class="null" href="Carbon.html">Carbon</a>
+    </nav>
+
+    <div class="content">
+        <h3>Land Use Classification</h3>
+        <div class="line"> </div>
+
+        <div class="row">
+            <div class="IMG float-right" style="
+            background: url('IMG/unsplash-Landuse.jpg') center/cover no-repeat;
+            aspect-ratio: 256/181;"></div>
+            <p>Land use classification maps show what the land is being used for, like if it's covered in trees,
+                buildings, water, or farmland. They're made using satellite images and help us see patterns that we
+                wouldn’t pick up on just by looking at the land. They're really useful for planning stuff like where to
+                protect nature, where to build, or where we might want to reforest.
+                <br /><br />
+                For this assignment, I worked with satellite imagery in ArcGIS Pro to explore different ways of
+                classifying land use and vegetation, using both supervised and unsupervised methods. Supervised
+                classification means you train the system by giving it example areas of different land types (like water
+                , vegetation, or urban areas), and it uses that to classify the rest of the image. Unsupervised
+                classification, on the other hand, groups pixels based on similarities in their data without any
+                guidance, you don’t tell it what’s what, it just finds patterns. I focused on the island of Curaçao.
+                Each map gave me a different insight, and while some methods worked better than others, they all helped
+                me understand what these tools are capable of (and where they fall short). Some maps went smoothly,
+                others didn’t go to plan, but that was all part of figuring things out.
+            </p>
+        </div>
+
+        <div class="line"> </div>
+        <h4 style="text-decoration: none;">Maps</h4>
+        <div class="line"> </div>
+
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland1.jpg') center/cover no-repeat;
+            aspect-ratio: 1135/948;"></div>
+        <div class="row">
+            <p>This map used a false colour band combo (Bands 8, 4, 3) which allows us to visualise wavelengths that the
+                human eye cannot see revealing details about vegetation health, water bodies, urban areas, and other
+                features that would be difficult to distinguish in a regular, true-color picture. This particular map
+                highlights vegetation in red, with brighter reds showing healthier or denser plant cover. You can see
+                vegetation mainly in the northeast and southeast of the island. Built-up areas appear grey or pink,
+                while bare ground shows up in brown tones. Water bodies are dark, and white cloud cover is visible in
+                the south and west.
+            </p>
+        </div>
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland2.jpg') center/cover no-repeat;
+            aspect-ratio: 1135/948;"></div>
+        <div class="row">
+            <p>This map is created with a true colour composite using Bands 4, 3, and 2, which shows the area as it
+                would look to the human eye. This map was useful as a reference to compare with the false colour and
+                classification maps. It helped me check whether the land cover types in the classified outputs actually
+                matched what’s visible in real life. On its own, it doesn’t reveal much about vegetation health or land
+                use differences, but it’s still helpful for orientation and for spotting obvious features like urban
+                areas, beaches, or dense forest.
+            </p>
+        </div>
+
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland3.jpg') center/cover no-repeat;
+            aspect-ratio: 399/193;"></div>
+        <div class="row">
+            <p>Before diving into classification, I used the spectral profile tool to look at how different land cover
+                types reflect light across various bands. I selected sample areas for vegetation, urban spaces, water,
+                terrain and clouds, and created a chart comparing their reflectance values. This helped me understand
+                the differences between land types from the software’s perspective and also made it easier to choose
+                training samples for the supervised classification.
+            </p>
+        </div>
+
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland4.jpg') center/cover no-repeat;
+            aspect-ratio: 1463/948;"></div>
+        <div class="row">
+            <p>Next, I attempted to run an unsupervised pixel-based classification for Curaçao, but I ran into constant
+                issues. Every time I tried to run the tool, it gave me an error message about missing stats and
+                rescaling pixel values, and sometimes it even crashed ArcGIS Pro completely. I suspect it had to do with
+                the raster file being in the wrong format or missing metadata. After multiple failed attempts, I decided
+                to skip the pixel-based version and go ahead with the unsupervised object-based classification instead.
+                That one ran fine, but the results weren’t great—it grouped everything too generally, with most of the
+                island appearing green, and even confused water and terrain in some spots. It gave a rough idea of land
+                cover patterns but didn’t feel reliable or detailed enough to use for proper analysis.
+            </p>
+        </div>
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland5.jpg') center/cover no-repeat;
+            aspect-ratio: 1463/948;"></div>
+        <div class="row">
+            <p>In contrast, the supervised pixel-based classification of Curaçao, turned out to be the strongest and
+                most accurate result. Because I trained the classification using known land types, the output showed
+                clear, realistic boundaries that closely matched what you'd expect to see on the ground. It took more
+                time and required some trial and error when selecting training data, but the result felt meaningful and
+                detailed.
+            </p>
+        </div>
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland6.jpg') center/cover no-repeat;
+            aspect-ratio: 1463/948;"></div>
+        <div class="IMG big" style="
+            background: url('IMG/mayaMapsland7.jpg') center/cover no-repeat;
+            aspect-ratio: 1463/948;"></div>
+        <div class="row">
+            <p>Next, I created NDVI vegetation health maps, one with a rainbow colour ramp and one with a yellow-green
+                gradient. The rainbow version showed fine variation in vegetation but was harder to interpret because of
+                the sharp colour changes. The yellow-green version was much clearer, it showed where vegetation was
+                strongest and where it was sparse, which would be useful for reforestation or conservation planning. One
+                common issue throughout most of the maps was the appearance of the clouds, they tended to mix up the map
+                analysis outcomes.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
